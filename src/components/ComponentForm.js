@@ -4,7 +4,6 @@ import Text from './formTypes/Text'
 import Boolean from './formTypes/Boolean'
 import SelectForm from './formTypes/Select'
 import Number from './formTypes/Number'
-import _ from 'lodash'
 
 export default function ComponentForm(props) {
 

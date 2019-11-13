@@ -23,6 +23,7 @@ import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 import MaterialSlider from "./components/materialComponents/MaterialSlider";
 import TuneIcon from '@material-ui/icons/Tune';
 import LinearScaleIcon from '@material-ui/icons/LinearScale';
+import ColorPicker from "./components/ColorPicker";
 
 
 
@@ -38,7 +39,7 @@ const components = [
     {name: 'Linear Progress', comp:<MaterialLinearProgress/>, icon:<LinearScaleIcon/>},
     {name: 'Table', comp:<MaterialTable/>, icon: <TableChartIcon/>},
     {name: 'Menu', comp:<MaterialMenu/>, icon: <MenuIcon/>},
-    {name: 'Slider', comp:<MaterialSlider/>, icon: <TuneIcon/>}
+    {name: 'Slider', comp:<MaterialSlider/>, icon: <TuneIcon/>},
 ]
 
 export default components

@@ -24,28 +24,13 @@ import components from "./ComponentList";
 import _ from 'lodash'
 import MenuItem from "@material-ui/core/MenuItem";
 import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
-import red from '@material-ui/core/colors/red'
-import pink from '@material-ui/core/colors/pink'
-import purple from '@material-ui/core/colors/purple'
-import indigo from '@material-ui/core/colors/indigo'
-import blue from '@material-ui/core/colors/blue'
-import cyan from '@material-ui/core/colors/cyan'
-import teal from '@material-ui/core/colors/teal'
-import green from '@material-ui/core/colors/green'
-import yellow from '@material-ui/core/colors/yellow'
-import orange from '@material-ui/core/colors/orange'
-import brown from '@material-ui/core/colors/brown'
-import grey from '@material-ui/core/colors/grey'
+import ColorPicker from "./components/ColorPicker";
 import MenuList from "@material-ui/core/MenuList";
-import PaletteIcon from '@material-ui/icons/Palette'
-const theme = createMuiTheme({
-    palette: {
-        primary: indigo,
-        secondary: pink,
-
-    }
-})
-
+import InvertColorsIcon from '@material-ui/icons/InvertColors';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
+import pink from '@material-ui/core/colors/pink'
+import indigo from '@material-ui/core/colors/indigo'
+import ThemeColors from "./components/ThemeColors";
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -165,12 +150,18 @@ const useStyles = makeStyles(theme => ({
     menuList: {
         position: 'fixed',
         top: 50,
-        right: 70,
+        right: 175,
         backgroundColor: 'white',
         border: '2px solid primary',
         width: 200,
         zIndex: 10050,
         borderTop: 'none'
+
+    },
+    colorPicker: {
+        position: 'fixed',
+        top: 57,
+        right: 10,
 
     }
 }));
@@ -180,10 +171,31 @@ export default function App() {
     const [open, setOpen] = React.useState(false);
     const [content, setContent] = React.useState(<MaterialGrid/>)
     const [search, setSearch] = React.useState('')
-    const [anchorEl, setAnchorEl] = React.useState(null)
+    const [editColor, setEditColor] = React.useState(false)
+    const [primaryColor, setPrimaryColor] = React.useState(indigo)
+    const [secondaryColor, setSecondaryColor] = React.useState(pink)
+    const [theme, setTheme] = React.useState({
+        palette: {
+            type: 'light',
+            primary: primaryColor,
+            secondary: secondaryColor,
+        }
+    })
+    const[muiTheme, setMuiTheme] = React.useState(createMuiTheme(theme))
 
+    React.useEffect(() => {
+        setMuiTheme(createMuiTheme(theme))
+    },[theme])
+    React.useEffect(() => {
+        setTheme({
+            palette: {
+                type: theme.palette.type,
+                primary: primaryColor,
+                secondary: secondaryColor
+            }
+        })
+    }, [primaryColor, secondaryColor])
     const handleSearch =  (evt) => {
-        setAnchorEl(evt.currentTarget)
         setSearch(evt.target.value)
     }
     const handleDrawerOpen = () => {
@@ -192,10 +204,20 @@ export default function App() {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+    const toggleDarkTheme = () => {
+        let newPaletteType = theme.palette.type === "light" ? "dark" : "light";
+        setTheme({
+            palette: {
+                type: newPaletteType,
+                primary: primaryColor,
+                secondary: secondaryColor
+            }
+        });
+    };
 
 
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={muiTheme}>
         <div className={classes.root}>
             <CssBaseline />
             <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
@@ -228,9 +250,16 @@ export default function App() {
                             onChange={handleSearch}
                         />
                     </div>
-{/*                    <IconButton color='inherit'>
-                    <PaletteIcon/>
-                    </IconButton>*/}
+                    <Tooltip title='Edit theme colors'>
+                    <IconButton onClick={() => setEditColor(!editColor)} color='inherit'>
+                        <InvertColorsIcon/>
+                    </IconButton>
+                    </Tooltip>
+                    <Tooltip title='Toggle light/dark mode'>
+                        <IconButton onClick={toggleDarkTheme} color='inherit'>
+                            <Brightness4Icon/>
+                        </IconButton>
+                    </Tooltip>
                     <IconButton color="inherit" onClick={() => window.open('https://github.com/marcusjoesting/MaterialComponents')}>
                         <Tooltip title='View Source Code'>
                         <GitHubIcon/>
@@ -269,6 +298,11 @@ export default function App() {
                     </MenuList>
                     }
                     {content}
+                    {editColor &&
+                    <div className={classes.colorPicker}>
+                        <ThemeColors setPrimaryColor={setPrimaryColor} setSecondaryColor={setSecondaryColor}/>
+                    </div>
+                    }
                 </Container>
             </main>
         </div>
