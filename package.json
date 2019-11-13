@@ -3,8 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.6.0",
+    "@material-ui/icons": "^4.5.1",
+    "jsx-to-string": "^1.4.0",
+    "lodash": "^4.17.15",
     "react": "^16.11.0",
+    "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^16.11.0",
+    "react-element-to-jsx-string": "^14.1.0",
     "react-scripts": "3.2.0"
   },
   "scripts": {
