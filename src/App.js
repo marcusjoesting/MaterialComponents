@@ -174,6 +174,7 @@ export default function App() {
     const [editColor, setEditColor] = React.useState(false)
     const [primaryColor, setPrimaryColor] = React.useState(indigo)
     const [secondaryColor, setSecondaryColor] = React.useState(pink)
+    const [searching, setSearching] = React.useState(false)
     const [theme, setTheme] = React.useState({
         palette: {
             type: 'light',
@@ -252,6 +253,7 @@ export default function App() {
                             }}
                             inputProps={{ 'aria-label': 'search' }}
                             value={search}
+                            onClick={() => setSearching(true)}
                             onChange={handleSearch}
                         />
                     </div>
@@ -290,7 +292,8 @@ export default function App() {
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
-                    {search !== '' &&
+                    {search !== '' && searching &&
+                    <ClickAwayListener onClickAway={() => setSearching(false)}>
                     <MenuList className={classes.menuList}>
                         {_.filter(components, (comp) => {
                             return comp.name.toLowerCase().includes(search.toLowerCase())
@@ -298,9 +301,10 @@ export default function App() {
                             return <MenuItem onClick={() => {
                                 setContent(component.comp)
                                 setSearch('')
-                            }}>{component.icon} {component.name}</MenuItem>
+                            }}><Typography color='secondary' variant='body1'>{component.icon} {component.name}</Typography></MenuItem>
                         })}
                     </MenuList>
+                    </ClickAwayListener>
                     }
                     {content}
                     {editColor &&

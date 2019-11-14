@@ -27,7 +27,7 @@ export default function ComponentForm(props) {
 
             <Grid container spacing={3} justify='center'>
                 <Grid item xs={12}>
-                <Typography align='center' variant='button'>{props.name} attributes</Typography>
+                <Typography color='secondary' align='center' variant='button'>{props.name} attributes</Typography>
                 </Grid>
                 {props.fields.map((field, index) => {
                         if (field.type === 'text') {

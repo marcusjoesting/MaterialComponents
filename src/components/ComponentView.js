@@ -48,7 +48,7 @@ export default function ComponentView(props) {
         <Grid container spacing={2} justify='center' alignItems='center'>
             <Paper className={classes.paper}>
                 <Grid item xs={12}>
-                    <Typography align='left' className={classes.title} variant='h4'>{props.name} Component</Typography>
+                    <Typography align='left' color='secondary' className={classes.title} variant='h4'>{props.name} Component</Typography>
                 </Grid>
             <div className={classes.paper3}>
                 <Grid container justify='center'>
@@ -62,7 +62,7 @@ export default function ComponentView(props) {
                 </Grid>
             </Paper>
             <Paper className={classes.code}>
-                {copied && <Typography variant='caption' color='primary' align='center'>Code Copied</Typography>}
+                {copied && <Typography variant='caption' color='secondary' align='center'>Code Copied</Typography>}
                 <Tooltip title='Copy code' placement='bottom'>
                     <CopyToClipboard onCopy={() => setCopied(true)} text={props.code}>
                         <IconButton style={{float:'right'}}>

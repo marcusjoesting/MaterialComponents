@@ -2,9 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import {makeStyles, Typography} from "@material-ui/core";
-import ComponentForm from "../ComponentForm";
 import _ from 'lodash'
-import reactElementToJSXString from 'react-element-to-jsx-string';
 import ComponentView from "../ComponentView";
 
 
