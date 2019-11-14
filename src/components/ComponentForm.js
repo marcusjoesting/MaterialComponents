@@ -4,7 +4,7 @@ import Text from './formTypes/Text'
 import Boolean from './formTypes/Boolean'
 import SelectForm from './formTypes/Select'
 import Number from './formTypes/Number'
-
+import Typography from "@material-ui/core/Typography";
 export default function ComponentForm(props) {
 
     const onChange = (e, index) => {
@@ -25,8 +25,10 @@ export default function ComponentForm(props) {
 
     return(
 
-            <Grid container spacing={1} justify='space-evenly'>
-
+            <Grid container spacing={3} justify='center'>
+                <Grid item xs={12}>
+                <Typography align='center' variant='button'>{props.name} attributes</Typography>
+                </Grid>
                 {props.fields.map((field, index) => {
                         if (field.type === 'text') {
                             return <Text key={field.name} field={field} index={index} onChangeHandler={onChange}/>

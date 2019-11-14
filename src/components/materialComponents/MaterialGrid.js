@@ -11,10 +11,10 @@ import ComponentView from "../ComponentView";
 function GridComponent(props) {
     return (<>
             <Grid container spacing={props.fields[5].value} alignItems={props.fields[1].value} direction={props.fields[2].value} justify={props.fields[3].value} spacing={props.fields[4].value}>
-                {_.times(12 , i => {
+                {_.times(props.fields[7].value , i => {
                     return (
                         <Grid item xs={props.fields[5].value}>
-                            <Paper style={{minHeight: props.fields[6].value}}>
+                            <Paper style={{minHeight: props.fields[6].value, display: 'flex', justifyContent:'center', alignItems:'center'}}>
                                 <Typography align='center' variant='caption'>Box #{i+1} xs={props.fields[5].value}</Typography>
                             </Paper>
                         </Grid>
@@ -33,7 +33,8 @@ export default function MaterialGrid(props) {
         {name:'justify',type:'select',value:'flex-start', options:['center', 'flex-start', 'flex-end', 'space-between','space-around','space-evenly']},
         {name:'spacing',type:'select',value:0, options:[0,1,2,3,4,5,6,7,8,9,10]},
         {name:'xs',type:'select',value:'auto', options:['auto',true,1,2,3,4,5,6,7,8,9,10,11,12]},
-        {name:'minHeight (of paper inside grid items)', type:'number', value: 0}
+        {name:'minHeight (of paper inside grid items)', type:'number', value: 0},
+        {name: 'number of items', type: "number", value: 12}
     ])
     return (<>
             <ComponentView fields={fields} setFields={setFields} name="Grid" component={<GridComponent fields={fields}/>}/>

@@ -6,8 +6,8 @@ import TextField from "@material-ui/core/TextField";
 export default function Text(props) {
     return(
         <>
-            <Grid item xs={4}>
-                <TextField label={props.field.name} value={props.field.value} onChange={(e) => props.onChangeHandler(e,props.index)}/>
+            <Grid item xs={3}>
+                <TextField fullWidth label={props.field.name} value={props.field.value} onChange={(e) => props.onChangeHandler(e,props.index)}/>
             </Grid>
         </>
     )

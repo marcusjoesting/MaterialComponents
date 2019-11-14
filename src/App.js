@@ -16,21 +16,21 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkList from "./components/LinkList";
-import {Icon, Menu, Tooltip} from "@material-ui/core";
+import { Tooltip} from "@material-ui/core";
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search'
-import reactElementToJSXString from 'react-element-to-jsx-string';
 import components from "./ComponentList";
 import _ from 'lodash'
 import MenuItem from "@material-ui/core/MenuItem";
 import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
-import ColorPicker from "./components/ColorPicker";
 import MenuList from "@material-ui/core/MenuList";
 import InvertColorsIcon from '@material-ui/icons/InvertColors';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import pink from '@material-ui/core/colors/pink'
 import indigo from '@material-ui/core/colors/indigo'
 import ThemeColors from "./components/ThemeColors";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import Brightness7Icon from '@material-ui/icons/Brightness7';
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -181,11 +181,16 @@ export default function App() {
             secondary: secondaryColor,
         }
     })
+
+
     const[muiTheme, setMuiTheme] = React.useState(createMuiTheme(theme))
+
 
     React.useEffect(() => {
         setMuiTheme(createMuiTheme(theme))
     },[theme])
+
+
     React.useEffect(() => {
         setTheme({
             palette: {
@@ -257,7 +262,7 @@ export default function App() {
                     </Tooltip>
                     <Tooltip title='Toggle light/dark mode'>
                         <IconButton onClick={toggleDarkTheme} color='inherit'>
-                            <Brightness4Icon/>
+                            {theme.palette.type === 'light' ? <Brightness4Icon/> : <Brightness7Icon/>}
                         </IconButton>
                     </Tooltip>
                     <IconButton color="inherit" onClick={() => window.open('https://github.com/marcusjoesting/MaterialComponents')}>
@@ -299,9 +304,11 @@ export default function App() {
                     }
                     {content}
                     {editColor &&
-                    <div className={classes.colorPicker}>
-                        <ThemeColors setPrimaryColor={setPrimaryColor} setSecondaryColor={setSecondaryColor}/>
-                    </div>
+                        <ClickAwayListener onClickAway={() => setEditColor(false)}>
+                            <div className={classes.colorPicker}>
+                                <ThemeColors setPrimaryColor={setPrimaryColor} setSecondaryColor={setSecondaryColor}/>
+                            </div>
+                        </ClickAwayListener>
                     }
                 </Container>
             </main>

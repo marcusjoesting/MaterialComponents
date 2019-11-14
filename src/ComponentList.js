@@ -23,10 +23,10 @@ import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 import MaterialSlider from "./components/materialComponents/MaterialSlider";
 import TuneIcon from '@material-ui/icons/Tune';
 import LinearScaleIcon from '@material-ui/icons/LinearScale';
-import ColorPicker from "./components/ColorPicker";
-
-
-
+import MaterialIconButton from "./components/materialComponents/MaterialIconButton";
+import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
+import MaterialAppBar from "./components/materialComponents/MaterialAppBar";
+import HorizontalSplitIcon from '@material-ui/icons/HorizontalSplit';
 const components = [
     {name: 'Grid', comp:<MaterialGrid/>, icon: <DashboardIcon/>},
     {name: 'Paper', comp:<MaterialPaper/>, icon:<InsertDriveFileIcon/>},
@@ -40,6 +40,8 @@ const components = [
     {name: 'Table', comp:<MaterialTable/>, icon: <TableChartIcon/>},
     {name: 'Menu', comp:<MaterialMenu/>, icon: <MenuIcon/>},
     {name: 'Slider', comp:<MaterialSlider/>, icon: <TuneIcon/>},
+    {name: 'Icon Button', comp:<MaterialIconButton/>, icon: <InsertEmoticonIcon/>},
+    {name: 'AppBar', comp:<MaterialAppBar/>, icon:<HorizontalSplitIcon/>}
 ]
 
 export default components
