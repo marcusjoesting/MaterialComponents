@@ -27,21 +27,24 @@ import MaterialIconButton from "./components/materialComponents/MaterialIconButt
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import MaterialAppBar from "./components/materialComponents/MaterialAppBar";
 import HorizontalSplitIcon from '@material-ui/icons/HorizontalSplit';
+import TabIcon from '@material-ui/icons/Tab';
+import MaterialTabs from "./components/materialComponents/MaterialTabs";
 const components = [
-    {name: 'Grid', comp:<MaterialGrid/>, icon: <DashboardIcon/>},
-    {name: 'Paper', comp:<MaterialPaper/>, icon:<InsertDriveFileIcon/>},
-    {name: 'TextField', comp:<MaterialTextField/>, icon:<TextFieldsIcon/>},
-    {name: 'Checkbox', comp:<MaterialCheckbox/>, icon:<CheckBoxIcon/>},
-    {name: 'Select', comp:<MaterialSelect/>, icon:<MenuOpenIcon/>},
-    {name: 'Button', comp:<MaterialButton/>, icon:<SlideshowIcon/>},
-    {name: 'Typography', comp:<MaterialTypography/>,icon:<TitleIcon/>},
-    {name: 'Circular Progress', comp:<MaterialCircularProgress/>, icon:<DonutLargeIcon/>},
-    {name: 'Linear Progress', comp:<MaterialLinearProgress/>, icon:<LinearScaleIcon/>},
-    {name: 'Table', comp:<MaterialTable/>, icon: <TableChartIcon/>},
-    {name: 'Menu', comp:<MaterialMenu/>, icon: <MenuIcon/>},
-    {name: 'Slider', comp:<MaterialSlider/>, icon: <TuneIcon/>},
-    {name: 'Icon Button', comp:<MaterialIconButton/>, icon: <InsertEmoticonIcon/>},
-    {name: 'AppBar', comp:<MaterialAppBar/>, icon:<HorizontalSplitIcon/>}
+    {name: 'Grid', comp:<MaterialGrid/>, icon: <DashboardIcon color='secondary'/>},
+    {name: 'Paper', comp:<MaterialPaper/>, icon:<InsertDriveFileIcon color='secondary'/>},
+    {name: 'TextField', comp:<MaterialTextField/>, icon:<TextFieldsIcon color='secondary'/>},
+    {name: 'Checkbox', comp:<MaterialCheckbox/>, icon:<CheckBoxIcon color='secondary'/>},
+    {name: 'Select', comp:<MaterialSelect/>, icon:<MenuOpenIcon color='secondary'/>},
+    {name: 'Button', comp:<MaterialButton/>, icon:<SlideshowIcon color='secondary'/>},
+    {name: 'Typography', comp:<MaterialTypography/>,icon:<TitleIcon color='secondary'/>},
+    {name: 'Circular Progress', comp:<MaterialCircularProgress/>, icon:<DonutLargeIcon color='secondary'/>},
+    {name: 'Linear Progress', comp:<MaterialLinearProgress/>, icon:<LinearScaleIcon color='secondary'/>},
+    {name: 'Table', comp:<MaterialTable/>, icon: <TableChartIcon color='secondary'/>},
+    {name: 'Menu', comp:<MaterialMenu/>, icon: <MenuIcon color='secondary'/>},
+    {name: 'Slider', comp:<MaterialSlider/>, icon: <TuneIcon color='secondary'/>},
+    {name: 'Icon Button', comp:<MaterialIconButton/>, icon: <InsertEmoticonIcon color='secondary'/>},
+    {name: 'AppBar', comp:<MaterialAppBar/>, icon:<HorizontalSplitIcon color='secondary'/>},
+    {name: 'Tabs', comp: <MaterialTabs/>, icon:<TabIcon color='secondary'/>}
 ]
 
 export default components

@@ -46,23 +46,23 @@ export default function ComponentView(props) {
     },[props.code])
     return (
         <Grid container spacing={2} justify='center' alignItems='center'>
-            <Paper className={classes.paper}>
-                <Grid item xs={12}>
-                    <Typography align='left' color='secondary' className={classes.title} variant='h4'>{props.name} Component</Typography>
-                </Grid>
+            <Grid item xs={12}>
+                <Typography align='left' color='secondary' className={classes.title} variant='h4'>{props.name} Component</Typography>
+            </Grid>
+            <Paper elevation={5} className={classes.paper}>
             <div className={classes.paper3}>
                 <Grid container justify='center'>
                     {props.component}
                 </Grid>
             </div>
             </Paper>
-            <Paper className={classes.paper2}>
+            <Paper elevation={5} className={classes.paper2}>
                 <Grid item xs={12}>
                     <ComponentForm fields={props.fields} setFields={props.setFields} name={props.name}/>
                 </Grid>
             </Paper>
-            <Paper className={classes.code}>
-                {copied && <Typography variant='caption' color='secondary' align='center'>Code Copied</Typography>}
+            <Paper elevation={5} className={classes.code}>
+                <Typography color='secondary' variant='button'>{props.name} code</Typography>
                 <Tooltip title='Copy code' placement='bottom'>
                     <CopyToClipboard onCopy={() => setCopied(true)} text={props.code}>
                         <IconButton style={{float:'right'}}>
@@ -71,6 +71,7 @@ export default function ComponentView(props) {
                     </CopyToClipboard>
                 </Tooltip>
                 <TextField fullWidth value={props.code}/>
+                {copied && <Typography variant='caption' color='secondary' align='right'>Code Copied</Typography>}
             </Paper>
         </Grid>
     )

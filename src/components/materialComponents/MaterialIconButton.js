@@ -34,7 +34,7 @@ const IconButtonComponent = props => {
 }
 
 
-export default function MaterialMenu(props) {
+export default function MaterialIconButton(props) {
     const [fields, setFields] = useState([
         {name: 'child', type: 'select', value: <DashboardIcon/>, options: icons},
         {name: 'color', type: 'select', value: 'default', options:['default', 'inherit', 'primary', 'secondary']},

@@ -7,7 +7,8 @@ const useStyles = makeStyles(theme => ({
    paper: {
        padding: theme.spacing(2),
        margin: theme.spacing(2)
-   }
+   },
+
 }))
 
 export default function ThemeColors(props) {
@@ -23,6 +24,9 @@ export default function ThemeColors(props) {
             <Grid item xs={12}>
                 <ColorPicker setColor={props.setSecondaryColor}/>
             </Grid>
+                <Grid item xs={4}>
+                <Typography color='error' variant={"caption"}>Warning: Some theme color combinations will not please your eyeballs as much as others. Choose wisely.</Typography>
+                </Grid>
             </Paper>
         </Grid>
     )

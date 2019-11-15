@@ -31,6 +31,8 @@ import indigo from '@material-ui/core/colors/indigo'
 import ThemeColors from "./components/ThemeColors";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Brightness7Icon from '@material-ui/icons/Brightness7';
+import Home from './components/Home'
+import ColorLensIcon from '@material-ui/icons/ColorLens';
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -169,7 +171,7 @@ const useStyles = makeStyles(theme => ({
 export default function App() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
-    const [content, setContent] = React.useState(<MaterialGrid/>)
+    const [content, setContent] = React.useState(<Home/>)
     const [search, setSearch] = React.useState('')
     const [editColor, setEditColor] = React.useState(false)
     const [primaryColor, setPrimaryColor] = React.useState(indigo)
@@ -228,6 +230,7 @@ export default function App() {
             <CssBaseline />
             <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
                 <Toolbar className={classes.toolbar}>
+
                     <IconButton
                         edge="start"
                         color="inherit"
@@ -242,7 +245,7 @@ export default function App() {
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
-                            <SearchIcon />
+                            <SearchIcon/>
                         </div>
                         <InputBase
                             id='search'
@@ -259,7 +262,7 @@ export default function App() {
                     </div>
                     <Tooltip title='Edit theme colors'>
                     <IconButton onClick={() => setEditColor(!editColor)} color='inherit'>
-                        <InvertColorsIcon/>
+                        <ColorLensIcon/>
                     </IconButton>
                     </Tooltip>
                     <Tooltip title='Toggle light/dark mode'>
@@ -282,6 +285,7 @@ export default function App() {
                 open={open}
             >
                 <div className={classes.toolbarIcon}>
+                    <Typography align='center' variant='h4' color='secondary' onClick={() => setContent(<Home/>)}>MCB</Typography>
                     <IconButton onClick={handleDrawerClose}>
                         <ChevronLeftIcon />
                     </IconButton>
@@ -301,7 +305,7 @@ export default function App() {
                             return <MenuItem onClick={() => {
                                 setContent(component.comp)
                                 setSearch('')
-                            }}><Typography color='secondary' variant='body1'>{component.icon} {component.name}</Typography></MenuItem>
+                            }}><Typography variant='body1'>{component.icon} {component.name}</Typography></MenuItem>
                         })}
                     </MenuList>
                     </ClickAwayListener>
