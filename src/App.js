@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import MaterialGrid from "./components/materialComponents/MaterialGrid";
 import clsx from 'clsx';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -24,15 +23,14 @@ import _ from 'lodash'
 import MenuItem from "@material-ui/core/MenuItem";
 import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
 import MenuList from "@material-ui/core/MenuList";
-import InvertColorsIcon from '@material-ui/icons/InvertColors';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import pink from '@material-ui/core/colors/pink'
-import indigo from '@material-ui/core/colors/indigo'
 import ThemeColors from "./components/ThemeColors";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import Home from './components/Home'
 import ColorLensIcon from '@material-ui/icons/ColorLens';
+import ListItem from "@material-ui/core/ListItem";
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -76,6 +74,7 @@ const useStyles = makeStyles(theme => ({
     drawerPaper: {
         position: 'relative',
         whiteSpace: 'nowrap',
+        height: '100vh',
         width: drawerWidth,
         transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
@@ -174,8 +173,8 @@ export default function App() {
     const [content, setContent] = React.useState(<Home/>)
     const [search, setSearch] = React.useState('')
     const [editColor, setEditColor] = React.useState(false)
-    const [primaryColor, setPrimaryColor] = React.useState(indigo)
-    const [secondaryColor, setSecondaryColor] = React.useState(pink)
+    const [primaryColor, setPrimaryColor] = React.useState({main: '#eeeeee'})
+    const [secondaryColor, setSecondaryColor] = React.useState({main: '#3f51b4'})
     const [searching, setSearching] = React.useState(false)
     const [theme, setTheme] = React.useState({
         palette: {
@@ -279,13 +278,14 @@ export default function App() {
             </AppBar>
             <Drawer
                 variant="permanent"
+
                 classes={{
                     paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
                 }}
                 open={open}
             >
                 <div className={classes.toolbarIcon}>
-                    <Typography align='center' variant='h4' color='secondary' onClick={() => setContent(<Home/>)}>MCB</Typography>
+
                     <IconButton onClick={handleDrawerClose}>
                         <ChevronLeftIcon />
                     </IconButton>
@@ -295,7 +295,7 @@ export default function App() {
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
-                <Container maxWidth="lg" className={classes.container}>
+                <Container maxWidth="xl" className={classes.container}>
                     {search !== '' && searching &&
                     <ClickAwayListener onClickAway={() => setSearching(false)}>
                     <MenuList className={classes.menuList}>

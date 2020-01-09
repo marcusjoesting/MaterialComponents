@@ -29,22 +29,43 @@ import MaterialAppBar from "./components/materialComponents/MaterialAppBar";
 import HorizontalSplitIcon from '@material-ui/icons/HorizontalSplit';
 import TabIcon from '@material-ui/icons/Tab';
 import MaterialTabs from "./components/materialComponents/MaterialTabs";
+import CreditCardIcon from '@material-ui/icons/CreditCard';
+import MaterialCard from "./components/materialComponents/MaterialCard";
+import MaterialSwitch from "./components/materialComponents/MaterialSwitch";
+import SyncAltIcon from '@material-ui/icons/SyncAlt';
+import MaterialDivider from "./components/materialComponents/MaterialDivider";
+import RemoveIcon from '@material-ui/icons/Remove';
+import MaterialTooltip from "./components/materialComponents/MaterialTooltip";
+import LiveHelpIcon from '@material-ui/icons/LiveHelp';
+import MaterialContainer from "./components/materialComponents/MaterialContainer";
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import MaterialLink from "./components/materialComponents/MaterialLink";
+import LinkIcon from '@material-ui/icons/Link';
+import MaterialDrawer from "./components/materialComponents/MaterialDrawer";
+import VerticalSplitIcon from '@material-ui/icons/VerticalSplit';
 const components = [
-    {name: 'Grid', comp:<MaterialGrid/>, icon: <DashboardIcon color='secondary'/>},
-    {name: 'Paper', comp:<MaterialPaper/>, icon:<InsertDriveFileIcon color='secondary'/>},
-    {name: 'TextField', comp:<MaterialTextField/>, icon:<TextFieldsIcon color='secondary'/>},
-    {name: 'Checkbox', comp:<MaterialCheckbox/>, icon:<CheckBoxIcon color='secondary'/>},
-    {name: 'Select', comp:<MaterialSelect/>, icon:<MenuOpenIcon color='secondary'/>},
-    {name: 'Button', comp:<MaterialButton/>, icon:<SlideshowIcon color='secondary'/>},
-    {name: 'Typography', comp:<MaterialTypography/>,icon:<TitleIcon color='secondary'/>},
-    {name: 'Circular Progress', comp:<MaterialCircularProgress/>, icon:<DonutLargeIcon color='secondary'/>},
-    {name: 'Linear Progress', comp:<MaterialLinearProgress/>, icon:<LinearScaleIcon color='secondary'/>},
-    {name: 'Table', comp:<MaterialTable/>, icon: <TableChartIcon color='secondary'/>},
-    {name: 'Menu', comp:<MaterialMenu/>, icon: <MenuIcon color='secondary'/>},
-    {name: 'Slider', comp:<MaterialSlider/>, icon: <TuneIcon color='secondary'/>},
-    {name: 'Icon Button', comp:<MaterialIconButton/>, icon: <InsertEmoticonIcon color='secondary'/>},
-    {name: 'AppBar', comp:<MaterialAppBar/>, icon:<HorizontalSplitIcon color='secondary'/>},
-    {name: 'Tabs', comp: <MaterialTabs/>, icon:<TabIcon color='secondary'/>}
+    {name: 'Grid', comp:<MaterialGrid/>, icon: <DashboardIcon color='secondary'/>, type:'layout'},
+    {name: 'Paper', comp:<MaterialPaper/>, icon:<InsertDriveFileIcon color='secondary'/>, type:'surface'},
+    {name: 'TextField', comp:<MaterialTextField/>, icon:<TextFieldsIcon color='secondary'/>, type:'input'},
+    {name: 'Checkbox', comp:<MaterialCheckbox/>, icon:<CheckBoxIcon color='secondary'/>, type:'input'},
+    {name: 'Select', comp:<MaterialSelect/>, icon:<MenuOpenIcon color='secondary'/>, type:'input'},
+    {name: 'Button', comp:<MaterialButton/>, icon:<SlideshowIcon color='secondary'/>, type:'input'},
+    {name: 'Typography', comp:<MaterialTypography/>,icon:<TitleIcon color='secondary'/>, type:'data'},
+    {name: 'Circular Progress', comp:<MaterialCircularProgress/>, icon:<DonutLargeIcon color='secondary'/>, type:'data'},
+    {name: 'Linear Progress', comp:<MaterialLinearProgress/>, icon:<LinearScaleIcon color='secondary'/>, type: 'data'},
+    {name: 'Table', comp:<MaterialTable/>, icon: <TableChartIcon color='secondary'/>, type:'data'},
+    {name: 'Menu', comp:<MaterialMenu/>, icon: <MenuIcon color='secondary'/>, type:'navigation'},
+    {name: 'Slider', comp:<MaterialSlider/>, icon: <TuneIcon color='secondary'/>, type:'input'},
+    {name: 'Icon Button', comp:<MaterialIconButton/>, icon: <InsertEmoticonIcon color='secondary'/>, type:'data'},
+    {name: 'AppBar', comp:<MaterialAppBar/>, icon:<HorizontalSplitIcon color='secondary'/>, type:'surface'},
+    {name: 'Tabs', comp: <MaterialTabs/>, icon:<TabIcon color='secondary'/>, type:'navigation'},
+    {name: 'Card', comp: <MaterialCard/>, icon:<CreditCardIcon color='secondary'/>, type:'surface'},
+    {name: 'Switch', comp: <MaterialSwitch/>, icon: <SyncAltIcon color='secondary'/>, type: 'input'},
+    {name: 'Divider', comp: <MaterialDivider/>, icon: <RemoveIcon color={"secondary"}/>, type: 'data'},
+    {name: 'Tooltip', comp: <MaterialTooltip/>, icon: <LiveHelpIcon color={"secondary"}/>, type: 'data'},
+    {name: 'Container', comp: <MaterialContainer/>, icon: <CheckBoxOutlineBlankIcon color='secondary'/>, type: 'layout'},
+    {name: "Link", comp: <MaterialLink/>, icon: <LinkIcon color='secondary'/>, type: 'navigation'},
+    {name: "Drawer", comp: <MaterialDrawer/>, icon: <VerticalSplitIcon color='secondary'/>, type: 'navigation'}
 ]
 
 export default components

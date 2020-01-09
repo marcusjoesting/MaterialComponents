@@ -14,7 +14,7 @@ function SliderComponent(props) {
     )
 }
 
-export default function MaterialLinearProgress() {
+export default function MaterialSlider() {
     const [fields, setFields] = useState([
         {name:'color',type:'select',value:'primary',options:['primary', 'secondary']},
         {name: 'disabled', type:'boolean', value: false},

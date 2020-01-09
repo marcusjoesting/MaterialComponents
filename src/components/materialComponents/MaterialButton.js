@@ -22,6 +22,7 @@ const ButtonComponent = props => {
         }
     })
     const comp = <Button className={classes.button} {...buttonProps}>{props.fields[5].value}</Button>
+    console.log(comp.toString)
     useEffect(() => {
         props.setCode(jsxToString(comp).replace('WithStyles(ForwardRef(','').replace('))','').replace('WithSyles(ForwardRef',''))
     }, [buttonProps])

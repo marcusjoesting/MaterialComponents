@@ -66,7 +66,7 @@ export default function ComponentView(props) {
                 <Tooltip title='Copy code' placement='bottom'>
                     <CopyToClipboard onCopy={() => setCopied(true)} text={props.code}>
                         <IconButton style={{float:'right'}}>
-                            <CodeIcon/>
+                            <CodeIcon color='secondary'/>
                         </IconButton>
                     </CopyToClipboard>
                 </Tooltip>

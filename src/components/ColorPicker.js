@@ -43,7 +43,7 @@ export default function ColorPicker(props) {
             {colors.map((color) => {
                 return _.times(9, (i) => {
                     return (
-                        <Tooltip title={color[(i+1) *100]}>
+                        <Tooltip interactive title={color[(i+1) *100]}>
                         <Avatar onClick={() => props.setColor({main: color[(i+1) * 100]})}  className={classes.color} variant='square' style={{backgroundColor: color[(i+1)*100], width: 25, height: 25}}/>
                         </Tooltip>
                     )
